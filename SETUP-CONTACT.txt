@@ -1,0 +1,22 @@
+SECURE CONTACT FORM + MYSQL
+
+1. Create a MySQL database and user in your hosting control panel.
+2. In phpMyAdmin select that database and import database.sql.
+3. Copy config.example.php to config.php and enter your DB credentials.
+4. Create a Cloudflare Turnstile widget for christosio.uk.
+5. Replace YOUR_TURNSTILE_SITE_KEY in index.html with the Turnstile SITE KEY.
+6. Put the Turnstile SECRET KEY in config.php.
+7. Upload the website and test the form.
+8. Check phpMyAdmin > contact_messages to maintain/read/archive messages.
+
+Included protection:
+- Cloudflare Turnstile server verification
+- Honeypot
+- CSRF protection
+- 60-second session throttle
+- Server-side validation
+- PDO prepared statements
+- No IP address stored in contact_messages
+- Optional email notification
+
+IMPORTANT: Never publish or share config.php. It contains your database password and Turnstile secret.

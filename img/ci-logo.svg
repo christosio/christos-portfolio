@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 485 92" role="img" aria-labelledby="title desc">
+<title id="title">Christos Ioannides logo</title><desc id="desc">CI monogram beside the name Christos Ioannides and Web &amp; UI/UX Developer</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172b47"/><stop offset="1" stop-color="#0d1b30"/></linearGradient></defs>
+<rect x="5" y="10" width="72" height="72" rx="17" fill="url(#bg)"/>
+<path d="M49 30c-3.2-1.7-6.5-2.3-9.8-2.3C28.8 27.7 21.7 35.9 21.7 46s7.1 18.3 17.5 18.3c3.3 0 6.6-.6 9.8-2.3" fill="none" stroke="#f9f8f4" stroke-width="7.3" stroke-linecap="round"/>
+<path d="M59 39v21" fill="none" stroke="#67d3df" stroke-width="8" stroke-linecap="round"/>
+<circle cx="59" cy="30.8" r="4.1" fill="#67d3df"/>
+<text x="98" y="46" font-family="Manrope,Arial,sans-serif" font-size="27" font-weight="800" letter-spacing="-1" fill="#15253a">Christos Ioannides</text>
+<text x="99" y="68" font-family="Manrope,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#125b85">WEB &amp; UI/UX DEVELOPER</text>
+</svg>
