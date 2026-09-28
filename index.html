@@ -51,6 +51,22 @@
 .project-card .text-link{margin-top:.5rem}
 @media(max-width:850px){.projects-grid{grid-template-columns:1fr}}
 </style>
+<style>
+/* Contact form follows the site's blue and red palette. */
+.contact-section{background:linear-gradient(135deg,#061b3a 0%,#073f82 70%,#64182f 125%)}
+.contact-section .kicker{color:#b9e6ff}.contact-section h2 em{color:#ff728e}
+.contact-form{max-width:740px;padding:clamp(1.25rem,4vw,2.4rem);background:#fff;color:#10223d;border:1px solid #c9e2f5;border-top:4px solid #e40035;border-radius:18px;box-shadow:0 24px 60px #02142d55;gap:1.15rem}
+.contact-form label{display:block;margin-bottom:.4rem;color:#10223d}
+.contact-form input:not([type="hidden"]),.contact-form textarea{background:#f7fbff;color:#10223d;border:1.5px solid #94b9d8;border-radius:10px;transition:border-color .2s ease,box-shadow .2s ease}
+.contact-form input:not([type="hidden"]):focus,.contact-form textarea:focus{outline:3px solid #ffcc33;outline-offset:2px;border-color:#075ec8;background:#fff}
+.contact-form .button{width:100%;border-radius:10px;min-height:52px}
+.contact-form #verify-button{background:#e8f4ff;color:#074679;border:1.5px solid #80b9e7}
+.contact-form #contact-submit{background:linear-gradient(135deg,#c90032,#e40035);color:#fff}
+.contact-form #contact-submit:disabled{background:#d6e0e9;color:#40566b;cursor:not-allowed}
+.contact-form .form-status{color:#31536f;margin:0}
+.contact-form .cf-turnstile{max-width:100%;overflow:hidden}
+@media(max-width:600px){.contact-form{padding:1.2rem}.contact-section{padding-block:4.5rem}}
+</style>
 
 </head>
 <body>
@@ -118,7 +134,7 @@
     </section>
 
     <section class="section boccia-section" id="boccia" aria-labelledby="boccia-title"><div class="container boccia-grid"><figure class="boccia-photo"><img src="img/boccia-pilsen-2026.jpeg" alt="Cyprus boccia team at the 2026 Pilsen World Boccia Challenger" loading="lazy"><figcaption>Cyprus boccia team in Pilsen, 2026 · Photo: <a href="https://kaoamea.org.cy/boccia-world-challenger-pilsen-2026-epistrefei-perifani-i-omada-mas/" target="_blank" rel="noopener noreferrer">K.A.O.A.M.E.A.</a></figcaption></figure><div><p class="kicker">05 / BEYOND THE SCREEN</p><h2 id="boccia-title">Competing with <em>purpose.</em></h2><p>Boccia is a Paralympic precision sport. Players throw red or blue balls and try to finish closer to the white target ball, called the jack, than their opponent. An individual match has four ends, with six balls for each player in every end.</p><p>I compete in the BC1 class, where athletes play with their hands or feet and may have a sport assistant to help with tasks such as positioning the wheelchair and passing balls. Every throw calls for accuracy, planning and adaptability.</p><p>Boccia has grown in Cyprus over the past four years, and I am proud to represent the country at international events. Training and competition have strengthened my focus, preparation and ability to adapt under pressure.</p><table class="boccia-results"><caption>International results · Men’s BC1</caption><thead><tr><th scope="col">Year</th><th scope="col">World Boccia Challenger</th><th scope="col">Place</th></tr></thead><tbody><tr><th scope="row">2023</th><td>Heraklion, Greece</td><td>9th of 10</td></tr><tr><th scope="row">2024</th><td>Olbia, Italy</td><td>8th of 9</td></tr><tr><th scope="row">2025</th><td>Astana, Kazakhstan</td><td>9th of 9</td></tr><tr><th scope="row">2026</th><td>Pilsen, Czech Republic</td><td>12th of 13</td></tr></tbody></table></div></div></section>
-    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><p class="kicker">06 / LET’S CONNECT</p><h2 id="contact-title">Have something <em>in mind?</em></h2><p>Send me a message using the protected contact form.</p>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><p class="kicker">06 / LET’S CONNECT</p><h2 id="contact-title">Let’s build something <em>that works for everyone.</em></h2><p>Need a new website, a clearer interface, or improvements to an existing page? Tell me about your project and I’ll get back to you. You can also email me at <a href="mailto:contact@christosio.uk">contact@christosio.uk</a>.</p>
 <form class="contact-form" id="contact-form" action="contact.php" method="post">
 <div class="form-row"><div><label for="name">Name</label><input id="name" name="name" maxlength="100" autocomplete="name" required></div><div><label for="email">Email</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required></div></div>
 <div><label for="subject">Subject</label><input id="subject" name="subject" maxlength="150" required></div>
