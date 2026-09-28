@@ -124,8 +124,9 @@
 <div><label for="subject">Subject</label><input id="subject" name="subject" maxlength="150" required></div>
 <div><label for="message">Message</label><textarea id="message" name="message" minlength="10" maxlength="5000" required></textarea></div>
 <div class="hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-<input type="hidden" name="csrf" id="csrf"><div class="cf-turnstile" data-sitekey="0x4AAAAAAFFGrEdhHVpUoAGl" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileReset" data-error-callback="onTurnstileReset"></div>
-<button class="button button-light" id="contact-submit" type="submit" disabled>Send message</button><p class="form-status" id="form-status" role="status" aria-live="polite">Complete the security check to send your message.</p></form>
+<input type="hidden" name="csrf" id="csrf"><div id="contact-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAAFFGrEdhHVpUoAGl" data-execution="execute" data-appearance="execute" data-refresh-expired="manual" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileReset" data-error-callback="onTurnstileReset"></div>
+<button class="button button-light" id="verify-button" type="button">Verify first</button>
+<button class="button button-light" id="contact-submit" type="submit" disabled>Send message</button><p class="form-status" id="form-status" role="status" aria-live="polite">Click Verify first to check before sending.</p></form>
 <div class="actions contact-actions"><a class="button button-dark-outline" href="https://m.me/chriscy93?ref=Hi-there!" target="_blank" rel="noopener noreferrer">Messenger ↗</a><a class="button button-dark-outline" href="https://www.linkedin.com/in/christos-iwannides-858a151b1/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
   </main>
 <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
@@ -168,19 +169,38 @@ topButton?.addEventListener('click', () => {
 </script>
 <script>
 const contactSubmit = document.getElementById('contact-submit');
+const verifyButton = document.getElementById('verify-button');
 const contactStatus = document.getElementById('form-status');
 let turnstileVerified = false;
 let contactSending = false;
 window.onTurnstileSuccess = () => {
   turnstileVerified = true;
+  verifyButton.disabled = true;
+  verifyButton.textContent = 'Verified';
   contactSubmit.disabled = contactSending;
-  contactStatus.textContent = '';
+  if (!contactSending) contactStatus.textContent = 'Verified. You can send your message.';
 };
 window.onTurnstileReset = () => {
   turnstileVerified = false;
+  verifyButton.disabled = false;
+  verifyButton.textContent = 'Verify first';
   contactSubmit.disabled = true;
-  if (!contactSending) contactStatus.textContent = 'Complete the security check to send your message.';
+  if (!contactSending) contactStatus.textContent = 'Click Verify first to check before sending.';
 };
+verifyButton.addEventListener('click', () => {
+  if (!window.turnstile) {
+    contactStatus.textContent = 'Security check is still loading. Please try again.';
+    return;
+  }
+  verifyButton.disabled = true;
+  contactStatus.textContent = 'Checking…';
+  try {
+    turnstile.execute('#contact-turnstile');
+  } catch (error) {
+    verifyButton.disabled = false;
+    contactStatus.textContent = 'Could not start the check. Please try again.';
+  }
+});
 (async()=>{try{const j=await fetch('csrf.php',{credentials:'same-origin'}).then(r=>r.json());document.getElementById('csrf').value=j.csrf}catch(e){}})();
 document.getElementById('contact-form')?.addEventListener('submit',async function(e){
   e.preventDefault();
@@ -198,9 +218,14 @@ document.getElementById('contact-form')?.addEventListener('submit',async functio
       window.onTurnstileReset();
       const c = await fetch('csrf.php',{credentials:'same-origin'}).then(x=>x.json());
       document.getElementById('csrf').value = c.csrf;
+    } else {
+      if (window.turnstile) turnstile.reset();
+      window.onTurnstileReset();
     }
   } catch(x) {
     contactStatus.textContent = 'Connection error. Please try again.';
+    if (window.turnstile) turnstile.reset();
+    window.onTurnstileReset();
   } finally {
     contactSending = false;
     contactSubmit.disabled = !turnstileVerified;
