@@ -66,6 +66,23 @@
 .contact-form .form-status{color:#31536f;margin:0}
 .contact-form .cf-turnstile{max-width:100%;overflow:hidden}
 @media(max-width:600px){.contact-form{padding:1.2rem}.contact-section{padding-block:4.5rem}}
+/* Footer */
+.site-footer{position:relative;overflow:hidden;background:radial-gradient(circle at 90% 0%,#0d4073 0%,transparent 36%),#04142d;padding:4rem 0 1.7rem}
+.site-footer::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#075ec8 0%,#0796f6 64%,#e40035 100%)}
+.footer-inner{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(160px,.6fr) minmax(160px,.6fr);column-gap:clamp(1.5rem,5vw,5rem);row-gap:2.5rem;align-items:start}
+.footer-brand{display:inline-flex;align-items:center;gap:.75rem;font-size:1.28rem;line-height:1.2}
+.footer-logo{width:42px;height:42px;border-radius:12px;background:#fff;padding:5px}
+.footer-intro{max-width:25rem;margin:1.2rem 0 1.35rem;color:#d3e3f1}
+.footer-email{display:inline-flex;align-items:center;gap:.45rem;color:#fff!important;font-weight:700;text-decoration:none;border-bottom:2px solid #ff4f72;padding-bottom:.2rem;overflow-wrap:anywhere}
+.footer-email:hover{color:#b9e6ff!important}
+.footer-heading{margin:.2rem 0 1rem;color:#a9cce6;font:800 .75rem/1.3 Manrope,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.site-footer .footer-links a{color:#eff8ff;text-decoration:none;line-height:1.4}
+.site-footer .footer-links a:hover{color:#9bd7ff;text-decoration:underline;text-underline-offset:5px}
+.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid #355373;padding-top:1.35rem}
+.site-footer .footer-bottom small{grid-column:auto;border:0;padding:0;color:#c7d4dc}
+@media(max-width:700px){.site-footer{padding:3.25rem 0 1.5rem}.footer-inner{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.25rem}.footer-about,.footer-bottom{grid-column:1/-1}}
+@media(max-width:390px){.footer-inner{grid-template-columns:1fr}.footer-about,.footer-bottom{grid-column:1}}
 </style>
 
 </head>
@@ -146,7 +163,12 @@
 <div class="actions contact-actions"><a class="button button-dark-outline" href="https://m.me/chriscy93?ref=Hi-there!" target="_blank" rel="noopener noreferrer">Messenger ↗</a><a class="button button-dark-outline" href="https://www.linkedin.com/in/christos-iwannides-858a151b1/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
   </main>
 <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
-  <footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="#home">Christos Ioannides<span>.</span></a><p>Accessible web design and front-end development.</p></div><nav aria-label="Social links"><a href="https://github.com/christosio" target="_blank" rel="noopener noreferrer">GitHub <span class="sr-only">(opens in a new tab)</span></a><a href="https://www.behance.net/christoiwannid" target="_blank" rel="noopener noreferrer">Behance <span class="sr-only">(opens in a new tab)</span></a><a href="https://www.linkedin.com/in/christos-iwannides-858a151b1/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="sr-only">(opens in a new tab)</span></a></nav><small>© <span id="year">2026</span> Christos Ioannides</small></div></footer>
+  <footer class="site-footer"><div class="container footer-inner">
+    <div class="footer-about"><a class="footer-brand" href="#home"><img class="footer-logo" src="img/ci-mark.svg" width="42" height="42" alt="">Christos Ioannides<span>.</span></a><p class="footer-intro">Clear, responsive websites designed with accessibility in mind.</p><a class="footer-email" href="mailto:contact@christosio.uk">contact@christosio.uk <span aria-hidden="true">↗</span></a></div>
+    <nav class="footer-navigation" aria-label="Footer navigation"><h2 class="footer-heading">Explore</h2><div class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#boccia">Boccia</a><a href="#contact">Contact</a></div></nav>
+    <nav class="footer-social" aria-label="Social links"><h2 class="footer-heading">Find me online</h2><div class="footer-links"><a href="https://github.com/christosio" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.behance.net/christoiwannid" target="_blank" rel="noopener noreferrer">Behance <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.linkedin.com/in/christos-iwannides-858a151b1/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div></nav>
+    <div class="footer-bottom"><small>© <span id="year">2026</span> Christos Ioannides</small><small>Designed in Cyprus with care.</small></div>
+  </div></footer>
 <script>
 const button = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-nav');
